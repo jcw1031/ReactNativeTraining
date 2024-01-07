@@ -1,7 +1,9 @@
 import { SafeAreaView, StyleSheet } from 'react-native';
 import React from "react";
 import SafeViewAndroid from "./src/styles/SafeViewAndroid";
-import SectionListBasics from "./src/components/SectionListBasics";
+import Touchables from "./src/components/Touchables";
+import { NavigationContainer } from "@react-navigation/native";
+import MyStack from "./src/components/MyStack";
 
 const DATA = [
   {
@@ -112,9 +114,7 @@ const DATA = [
 
 const App = () => {
   return (
-    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <SectionListBasics></SectionListBasics>
-    </SafeAreaView>
+        <MyStack />
   );
 }
 

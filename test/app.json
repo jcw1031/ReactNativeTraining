@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "test",
-    "slug": "firstapp",
+    "slug": "test",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./src/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,22 +15,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.woopaca.reactnative"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "dda1fcb8-2dfb-40db-9a70-dba4c56e6f1c"
+        "projectId": "f87262a2-4326-4d41-bb04-3bb211ef8287"
       }
     },
-    "owner": "chann"
+    "owner": "jcw1031"
   }
 }
