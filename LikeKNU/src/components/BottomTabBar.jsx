@@ -6,6 +6,9 @@ import Announcement from "./Announcement";
 import Entypo from "react-native-vector-icons/Entypo";
 import Calendar from "./Calendar";
 import Menu from "./Menu";
+import React from "react";
+import { getHeaderTitle } from "@react-navigation/elements";
+import { StyleSheet, Text, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,11 +17,17 @@ function BottomTabBar(props) {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerShown: false,
+        header: ({ route, options }) => {
+          const title = getHeaderTitle(options, route.name);
+
+          return <View style={styles.header}>
+            <Text style={styles.headerTitle}>{title}</Text>
+          </View>;
+        },
         tabBarActiveTintColor: '#A68968',
         tabBarInactiveTintColor: '#AFAFAF',
         tabBarLabelStyle: { fontFamily: 'Pretendard-5', fontSize: 14, marginTop: -15 },
-        tabBarStyle: { height: 96, borderTopColor: '#E2E2E2', borderTopWidth: 1 }
+        tabBarStyle: { height: 96, borderTopColor: '#E2E2E2', borderTopWidth: 1 },
       }}
     >
       <Tab.Screen
@@ -27,7 +36,7 @@ function BottomTabBar(props) {
         options={{
           tabBarLabel: '메인',
           tabBarIcon: ({ color, size }) => (
-            <Entypo name="home" color={color} size={24}></Entypo>
+            <Entypo name="home" color={color} size={size}></Entypo>
           )
         }}
       />
@@ -76,3 +85,17 @@ function BottomTabBar(props) {
 }
 
 export default BottomTabBar;
+
+const styles = StyleSheet.create({
+  header: {
+    height: 120,
+    backgroundColor: "tomato",
+    alignItems: "center",
+    justifyContent: "flex-end"
+  },
+  headerTitle: {
+    fontFamily: 'Pretendard-7',
+    fontSize: 32,
+    marginBottom: 20
+  }
+});
