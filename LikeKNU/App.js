@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabBar from "./src/components/BottomTabBar";
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
+import { SafeAreaProvider, } from 'react-native-safe-area-context';
 
 SplashScreen.preventAutoHideAsync();
 
-function App() {
+const App = () => {
   const [fontsLoaded, fontError] = useFonts({
     'Pretendard-1': require('./src/assets/fonts/Pretendard-Thin.otf'),
     'Pretendard-2': require('./src/assets/fonts/Pretendard-ExtraLight.otf'),
@@ -30,18 +30,12 @@ function App() {
   }
 
   return (
-    <NavigationContainer onReady={onLayoutRootView}>
-      <BottomTabBar></BottomTabBar>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer onReady={onLayoutRootView}>
+        <BottomTabBar></BottomTabBar>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-  home: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-});

@@ -9,10 +9,13 @@ import Menu from "./Menu";
 import React from "react";
 import { getHeaderTitle } from "@react-navigation/elements";
 import { StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Tab = createBottomTabNavigator();
 
-function BottomTabBar(props) {
+const BottomTabBar = () => {
+  const insets = useSafeAreaInsets();
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -26,8 +29,23 @@ function BottomTabBar(props) {
         },
         tabBarActiveTintColor: '#A68968',
         tabBarInactiveTintColor: '#AFAFAF',
-        tabBarLabelStyle: { fontFamily: 'Pretendard-5', fontSize: 14, marginTop: -15 },
-        tabBarStyle: { height: 96, borderTopColor: '#E2E2E2', borderTopWidth: 1 },
+        tabBarLabelStyle: {
+          flex: 1,
+          fontFamily: 'Pretendard-5',
+          fontSize: 14,
+          justifyContent: "center",
+          marginBottom: 5,
+          marginTop: -10
+        },
+        tabBarIconStyle: { flex: 3 },
+        tabBarStyle: {
+          height: 76,
+          borderTopColor: '#E2E2E2',
+          borderTopWidth: 1,
+          bottom: insets.bottom,
+          paddingBottom: 0,
+          paddingHorizontal: 10
+        },
       }}
     >
       <Tab.Screen
