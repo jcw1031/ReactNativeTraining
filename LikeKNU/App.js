@@ -1,9 +1,10 @@
-import React, { useCallback } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import BottomTabBar from "./src/components/BottomTabBar";
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from "expo-status-bar";
+import React, { useCallback } from 'react';
 import { SafeAreaProvider, } from 'react-native-safe-area-context';
+import BottomTabBar from "./src/components/BottomTabBar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,6 +32,7 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
+      <StatusBar style="dark" />
       <NavigationContainer onReady={onLayoutRootView}>
         <BottomTabBar></BottomTabBar>
       </NavigationContainer>

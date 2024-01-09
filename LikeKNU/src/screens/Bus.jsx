@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 
 const Bus = () => {
   return (
@@ -13,8 +13,9 @@ export default Bus;
 const styles = StyleSheet.create({
   message: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
   }
 });
 

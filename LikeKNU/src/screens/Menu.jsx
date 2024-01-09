@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 
 const Menu = () => {
   return (
@@ -13,7 +13,8 @@ export default Menu;
 const styles = StyleSheet.create({
   message: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
   }
 });

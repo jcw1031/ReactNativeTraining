@@ -1,57 +1,60 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { getHeaderTitle } from '@react-navigation/elements';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Home from "./Home";
-import Bus from "./Bus";
-import Announcement from "./Announcement";
-import Entypo from "react-native-vector-icons/Entypo";
-import Calendar from "./Calendar";
-import Menu from "./Menu";
-import React from "react";
-import { getHeaderTitle } from "@react-navigation/elements";
-import { StyleSheet, Text, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Announcement from '../screens/Announcement';
+import Bus from '../screens/Bus';
+import Calendar from '../screens/Calendar';
+import Home from '../screens/Home';
+import Menu from '../screens/Menu';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabBar = () => {
-  const insets = useSafeAreaInsets();
+  const { bottom: bottomHeight, top: statusBarHeight } = useSafeAreaInsets();
+  // const statusBarHeight = getStatusBarHeight();
 
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        header: ({ route, options }) => {
-          const title = getHeaderTitle(options, route.name);
-
-          return <View style={styles.header}>
-            <Text style={styles.headerTitle}>{title}</Text>
-          </View>;
-        },
         tabBarActiveTintColor: '#A68968',
         tabBarInactiveTintColor: '#AFAFAF',
-        tabBarLabelStyle: {
-          flex: 1,
-          fontFamily: 'Pretendard-5',
-          fontSize: 14,
-          justifyContent: "center",
-          marginBottom: 5,
-          marginTop: -10
-        },
+        tabBarLabelStyle: styles.label,
         tabBarIconStyle: { flex: 3 },
         tabBarStyle: {
-          height: 76,
+          height: 70,
           borderTopColor: '#E2E2E2',
           borderTopWidth: 1,
-          bottom: insets.bottom,
+          bottom: bottomHeight,
           paddingBottom: 0,
-          paddingHorizontal: 10
+          paddingHorizontal: 10,
         },
+        headerTitleAlign: 'left',
+        headerTitleStyle: {
+          fontSize: 28,
+          fontFamily: 'Pretendard-6',
+        },
+        headerStyle: {
+          height: 100,
+          shadowOpacity: 0
+        }
       }}
     >
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
+          header: ({ route, options }) => {
+            const title = getHeaderTitle(options, route.name);
+
+            return <View style={styles.homeHeader(statusBarHeight)}>
+              <Text style={styles.headerTitle}>{title}</Text>
+            </View>;
+          },
           tabBarLabel: '메인',
           tabBarIcon: ({ color, size }) => (
             <Entypo name="home" color={color} size={size}></Entypo>
@@ -65,7 +68,8 @@ const BottomTabBar = () => {
           tabBarLabel: '공지사항',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="clipboard-text" color={color} size={size} />
-          )
+          ),
+          headerTitle: '공지사항'
         }}
       />
       <Tab.Screen
@@ -96,6 +100,8 @@ const BottomTabBar = () => {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="calendar-blank" color={color} size={size} />
           ),
+          tabBarBadge: 95,
+          tabBarBadgeStyle: { top: 10, textAlign: 'center', padding: 2 }
         }}
       />
     </Tab.Navigator>
@@ -105,15 +111,24 @@ const BottomTabBar = () => {
 export default BottomTabBar;
 
 const styles = StyleSheet.create({
-  header: {
-    height: 120,
-    backgroundColor: "tomato",
-    alignItems: "center",
-    justifyContent: "flex-end"
-  },
+  homeHeader: statusBarHeight => ({
+    height: 80,
+    top: statusBarHeight,
+    backgroundColor: 'tomato',
+    justifyContent: 'center',
+    padding: 20,
+    borderBottomColor: '#E2E2E2',
+    borderBottomWidth: 1
+  }),
   headerTitle: {
     fontFamily: 'Pretendard-7',
     fontSize: 32,
-    marginBottom: 20
+  },
+  label: {
+    flex: 1,
+    fontFamily: 'Pretendard-5',
+    fontSize: 12,
+    marginBottom: -10,
+    marginTop: -10
   }
 });

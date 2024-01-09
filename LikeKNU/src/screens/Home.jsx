@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 
 const Home = () => {
   return (
@@ -13,7 +13,8 @@ export default Home;
 const styles = StyleSheet.create({
   message: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
   }
 });
