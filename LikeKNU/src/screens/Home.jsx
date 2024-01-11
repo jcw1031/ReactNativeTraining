@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import TabViewHeader from '../components/TabViewHeader';
 
 const Home = () => {
   return (

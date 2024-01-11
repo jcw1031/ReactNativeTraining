@@ -10,6 +10,7 @@ import Bus from '../screens/Bus';
 import Calendar from '../screens/Calendar';
 import Home from '../screens/Home';
 import Menu from '../screens/Menu';
+import TabViewHeader from './TabViewHeader';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,9 +30,9 @@ const BottomTabBar = () => {
           height: 70,
           borderTopColor: '#E2E2E2',
           borderTopWidth: 1,
-          bottom: bottomHeight,
+          bottom: (bottomHeight !== 0 ? bottomHeight - 15 : 0),
           paddingBottom: 0,
-          paddingHorizontal: 10,
+          paddingHorizontal: 10
         },
         headerTitleAlign: 'left',
         headerTitleStyle: {
@@ -90,6 +91,7 @@ const BottomTabBar = () => {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="silverware-fork-knife" color={color} size={size} />
           ),
+          headerShown: false
         }}
       />
       <Tab.Screen
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   label: {
-    flex: 1,
+    flex: 2,
     fontFamily: 'Pretendard-5',
     fontSize: 12,
     marginBottom: -10,

@@ -12,15 +12,7 @@ const Home = () => {
   );
 };
 
-const Settings = () => {
-  return (
-    <View style={styles.message}>
-      <Text>Settings</Text>
-    </View>
-  );
-};
-
-const Announcement = ({ navigation }) => {
+const Announcement = () => {
     return (
       <Tab.Navigator
         screenOptions={{

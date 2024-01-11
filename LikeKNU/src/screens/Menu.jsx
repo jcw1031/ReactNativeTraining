@@ -1,20 +1,116 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import TabViewHeader from '../components/TabViewHeader';
 
 const Menu = () => {
   return (
-    <View style={styles.message}>
-      <Text>식단 메뉴</Text>
+    <View>
+      <StatusBar backgroundColor="white"> </StatusBar>
+      <TabViewHeader></TabViewHeader>
+      <ScrollView style={styles.container}>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+        <Text>asdf</Text>
+      </ScrollView>
     </View>
-  )
+  );
 };
 
 export default Menu;
 
 const styles = StyleSheet.create({
-  message: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white'
+  container: {
+    backgroundColor: 'white',
+    paddingTop: 100
   }
 });
