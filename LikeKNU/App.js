@@ -1,10 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { useFonts } from "expo-font";
+import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from 'expo-status-bar';
 import React, { useCallback } from 'react';
 import { SafeAreaProvider, } from 'react-native-safe-area-context';
-import BottomTabBar from "./src/components/BottomTabBar";
+import { initializeDevice } from './src/api/initializer';
+import BottomTabBar from './src/components/BottomTabBar';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,6 +30,8 @@ const App = () => {
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
+  initializeDevice();
 
   return (
     <SafeAreaProvider>

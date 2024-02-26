@@ -5,45 +5,56 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import colors from '../constants/colors';
 import Announcement from '../screens/Announcement';
 import Bus from '../screens/Bus';
 import Calendar from '../screens/Calendar';
 import Home from '../screens/Home';
 import Menu from '../screens/Menu';
-import TabViewHeader from './TabViewHeader';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabBar = () => {
   const { bottom: bottomHeight, top: statusBarHeight } = useSafeAreaInsets();
+  const tabBarStyle = {
+    height: 70,
+    borderTopColor: '#E2E2E2',
+    borderTopWidth: 1,
+    borderLeftColor: '#E2E2E2',
+    borderLeftWidth: 1,
+    borderRightColor: '#E2E2E2',
+    borderRightWidth: 1,
+
+    bottom: (bottomHeight !== 0 ? bottomHeight - 15 : 0),
+    paddingBottom: 0,
+    paddingHorizontal: 10,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    backgroundColor: 'rgba( 255, 255, 255, 0.6 )',
+    blurRadius: 100
+  };
+  const screenOptions = {
+    tabBarActiveTintColor: colors.CHEONAN,
+    tabBarInactiveTintColor: '#AFAFAF',
+    tabBarLabelStyle: styles.label,
+    tabBarIconStyle: { flex: 3 },
+    tabBarStyle,
+    headerTitleAlign: 'left',
+    headerTitleStyle: {
+      fontSize: 28,
+      fontFamily: 'Pretendard-6',
+    },
+    headerStyle: {
+      height: 100,
+      shadowOpacity: 0
+    }
+  };
   // const statusBarHeight = getStatusBarHeight();
 
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{
-        tabBarActiveTintColor: '#A68968',
-        tabBarInactiveTintColor: '#AFAFAF',
-        tabBarLabelStyle: styles.label,
-        tabBarIconStyle: { flex: 3 },
-        tabBarStyle: {
-          height: 70,
-          borderTopColor: '#E2E2E2',
-          borderTopWidth: 1,
-          bottom: (bottomHeight !== 0 ? bottomHeight - 15 : 0),
-          paddingBottom: 0,
-          paddingHorizontal: 10
-        },
-        headerTitleAlign: 'left',
-        headerTitleStyle: {
-          fontSize: 28,
-          fontFamily: 'Pretendard-6',
-        },
-        headerStyle: {
-          height: 100,
-          shadowOpacity: 0
-        }
-      }}
+      screenOptions={screenOptions}
     >
       <Tab.Screen
         name="Home"
@@ -109,7 +120,6 @@ const BottomTabBar = () => {
     </Tab.Navigator>
   );
 }
-
 export default BottomTabBar;
 
 const styles = StyleSheet.create({
