@@ -15,10 +15,10 @@ const EmojiSticker = ({ imageSize, stickerSource }) => {
     return {
       transform: [
         {
-          translateX: translateX.value,
+          translateX: translateX.value
         },
         {
-          translateY: translateY.value,
+          translateY: translateY.value
         },
       ],
     };
